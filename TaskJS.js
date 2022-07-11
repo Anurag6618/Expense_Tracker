@@ -17,8 +17,17 @@ function NewItem(e){
     const obj={
         Amount,Description,Category
     }
-    localStorage.setItem(obj.Amount,JSON.stringify(obj))
-    Displayusers(obj)
+
+    axios.post('https://crudcrud.com/api/6f928ad36ee04943b0295cfa34bf2510/appointmentdata',obj)
+    .then((respose)=>{
+        Displayusers(respose.data)
+        //console.log(response)
+    })
+    .catch((err)=>{
+        console.log(err)
+    })
+    //localStorage.setItem(obj.Amount,JSON.stringify(obj))
+    
 
 }
 
